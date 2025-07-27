@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-## Octology for Self-Actuating Communities
+## Ontology for Self-Actuating Communities
 
 - [About](/about/)
 
