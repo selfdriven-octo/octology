@@ -4,7 +4,7 @@ title: About - Octology
 permalink: /about/
 ---
 
-## Ontolog
+## About Ontology
 
 Ontology is the study of “what exists” and the relationships between different kinds of existence. It can mean slightly different things depending on context:
 
