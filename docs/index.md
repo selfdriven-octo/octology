@@ -7,6 +7,6 @@ title: Home
 
 - [About](/about/)
 
-### Resources
+### Incorporating
 - [skillzeb.io](https://skillzeb.io) - templates.
 
