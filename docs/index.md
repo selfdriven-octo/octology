@@ -13,6 +13,6 @@ Defining the Why, Who, What, How, Where & When.
 ### Related
 - Generate *octology* definitions (skillzeb Templates) using the *[Progressive Self-Actuation Framework](https://onboarding.selfdriven.foundation)*.
 - Community organisational systems and interfaces are generated using the [selfdriven.network](https://selfdriven.network) based on *octology* definitions.
-- [octomics.io](https://octomics.io) - Tokenised community-verified activity and growth as a path to a useful economy and resources.
+- [octomics.io](https://octomics.io) - Tokenised community-verified activity and growth as a path to a useful economy and resources - defined by a community *octology* definition (skillzeb Template).
 
 
