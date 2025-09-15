@@ -1,10 +1,10 @@
 ---
 layout: default
-title: About - Octology
-permalink: /about/
+title: What is Ontology - Octology
+permalink: /what-is-ontology/
 ---
 
-## About Ontology
+## What is Ontology
 
 Ontology is the study of “what exists” and the relationships between different kinds of existence. It can mean slightly different things depending on context:
 

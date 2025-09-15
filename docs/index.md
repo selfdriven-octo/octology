@@ -5,8 +5,12 @@ title: Home
 
 ## Ontology for Self-Actuating Communities
 
-- [About](/about/)
+Defining the Why, Who, What, How, Where & When.
 
-### Incorporating
-- [skillzeb.io](https://skillzeb.io) - templates.
+- [What is Ontology](/what-is-ontology/)
+- [Incorporating skillzeb.io](https://skillzeb.io) - templates.
+- [Onboarding](https://onboarding.selfdriven.foundation) - the Progressive Self-Actuation Framework.
+
+### Uses
+- [octomics.io](https://octomics.io) - Community-verified activity and growth as a path to useful resources.
 
