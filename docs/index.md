@@ -5,7 +5,7 @@ title: Home
 
 ## Ontology for Self-Actuating Communities
 
-Defining the Why, Who, What, How, Where & When.
+Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
 - [What is Ontology](/what-is-ontology/)
 - [Incorporating skillzeb.io](https://skillzeb.io) - templates.
