@@ -3,12 +3,13 @@ layout: default
 title: Home
 ---
 
-## Ontology for Self-Actuating Communities
+## Ontology and Topology for Self-Actuating Communities
 
 Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
-- [What is Ontology](/what-is-ontology/)
-- [Incorporating skillzeb.io](https://skillzeb.io) - templates.
+- [Incorporating skillzeb.io](https://skillzeb.io) templates.
+- [Ontology](/what-is-ontology/) - about what exists
+- [Topology](/what-is-topology/) - about how connected or arranged
 
 ### Related
 - Generate *octology* definitions (skillzeb Templates) using the *[Progressive Self-Actuation Framework](https://onboarding.selfdriven.foundation)*.
