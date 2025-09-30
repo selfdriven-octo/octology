@@ -7,7 +7,7 @@ title: Home
 
 Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
-- [Incorporating skillzeb.io](https://skillzeb.io) templates.
+- [Incorporating skillzeb.io templates](https://skillzeb.io)
 - [Ontology](/what-is-ontology/) - about what exists
 - [Topology](/what-is-topology/) - about how connected or arranged
 
