@@ -16,4 +16,6 @@ Where definitions come alive - defining the Why, Who, What, How, Where & When.
 - Community organisational systems and interfaces are generated using the [selfdriven.network](https://selfdriven.network) based on *octology* definitions.
 - [octomics.io](https://octomics.io) - Tokenised community-verified activity and growth as a path to a useful economy and resources - defined by a community *octology* definition (skillzeb Template).
 
+--
 
+<em>octology is an intents platform: a system where human and community goals are expressed as intents, translated into trusted digital actions via identity, governance, and AI, and anchored on-chain for verifiability. It turns community intent into coordinated execution.</em> -- [more...](/as-intents-platform/)
