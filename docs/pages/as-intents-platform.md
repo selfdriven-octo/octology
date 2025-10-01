@@ -51,14 +51,14 @@ An intent can be understood as:
 - APIs, apps, and external services carry out intent-aligned actions.
 - Example: funding, credential issuance, staking, or governance voting.
 
-### The Role of <em>octology</em>.io
+### The Role of <em>selfdriven</em>
 
-<em>octology</em>.io provides the map of intents:
+<em>selfdriven</em> provides the map of intents:
 - Eight-fold framework to structure and classify intents.
 - Visualisation of overlaps, tensions, and synergies across domains.
-- Tokenised representation (“Octo” tokens) for staking, prioritisation, and coordination.
+- Tokenised representation (e.g. “Octo” tokens) for staking, prioritisation, and coordination.
 
-Together, <em>octology</em> + <em>octology</em>.io create both the engine and the interface for intent capture, alignment, and execution.
+Together, <em>octology</em> + <em>selfdriven</em> create both the engine and the interface for intent capture, alignment, and execution.
 
 ### Use Cases
 
@@ -106,4 +106,4 @@ By framing itself as an intents platform, <em>octology</em> positions its archit
 
 ----
 
-<em>octology</em>, intents platform, SSI, DID, governance, AI, Cardano, Midnight, ZK, octology.io, collective intelligence, self-actuation 
+<em>octology</em>, <em>selfdriven</em>, intents platform, SSI, DID, governance, AI, Cardano, Midnight, ZK, octology.io, collective intelligence, self-actuation 
