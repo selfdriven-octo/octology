@@ -17,8 +17,6 @@ The digital era has seen the rise of platforms that capture individual user inte
 
 <em>octology</em> fills this gap by offering a community-scale intents platform, bridging human goals with machine execution in ways that are transparent, verifiable, and trust-anchored.
 
-⸻
-
 ### Defining Intents
 
 An intent can be understood as:
