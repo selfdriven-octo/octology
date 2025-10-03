@@ -7,9 +7,9 @@ title: Home
 
 Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
-- [Incorporating skillzeb.io templates](https://skillzeb.io)
 - [Ontology](/what-is-ontology/) - what exists
 - [Topology](/what-is-topology/) - how connected/arranged
+- [Incorporating skillzeb.io templates](https://skillzeb.io)
 
 ### Related
 - Generate *octology* definitions (skillzeb Templates) using the *[Progressive Self-Actuation Framework](https://onboarding.selfdriven.foundation)*.
