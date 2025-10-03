@@ -18,4 +18,4 @@ Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
 ### As an Intents Framework/Platform
 
-<em>octology, as an intents framework/platform, is a system where human and community goals are expressed as intents, translated into trusted digital actions via identity, governance, and AI, and anchored on-chain for verifiability. It turns community intent into coordinated execution.</em> -- [more...](/as-intents-platform/)
+<em>octology, as an intents framework/platform, is a system where human and community goals are expressed as intents, translated into trusted digital actions via identity, governance, and AI, and anchored on-chain for verifiability. It turns community intent into collective spaces and activity.</em> -- [more...](/as-intents-platform/)
