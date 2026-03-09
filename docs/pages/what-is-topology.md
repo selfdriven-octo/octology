@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: selfdriven
 title: What is Topology - Octology
 permalink: /what-is-topology/
 ---

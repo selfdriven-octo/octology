@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: selfdriven
 title: Home
 ---
 
@@ -12,6 +12,7 @@ Where definitions come alive - defining the Why, Who, What, How, Where & When.
 - [Incorporating skillzeb.io templates](https://skillzeb.io)
 
 ### Related
+- [Actuate Areas of Focus](https://actuate.selfdriven.community/framework/areas-of-focus)
 - Generate *octology* definitions (skillzeb Templates) using the [Progressive Self-Actuation Framework](https://actuate.selfdriven.community).
 - [Areas of Focus Framework for Organising](https://actuate.selfdriven.community/framework/areas-of-focus)
 - Community organisational systems and interfaces (human/machine) are generated using the [selfdriven.network](https://selfdriven.network) based on *octology* definitions.
