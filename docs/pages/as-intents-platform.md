@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: selfdriven
 title: As Intents Platform - <em>octology</em>
 permalink: /as-intents-platform/
 ---

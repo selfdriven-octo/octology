@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: selfdriven
 title: What is Ontology - Octology
 permalink: /what-is-ontology/
 ---
