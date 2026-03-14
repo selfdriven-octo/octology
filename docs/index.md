@@ -5,7 +5,7 @@ title: Home
 
 # Ontology and Topology for Self-Actuating Communities
 
-**Where definitions come alive - defining the Why, Who, What, How, Where & When.**
+Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
 - [Ontology](/what-is-ontology/) - what exists
 - [Topology](/what-is-topology/) - how connected/arranged
