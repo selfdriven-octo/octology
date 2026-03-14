@@ -1,7 +1,7 @@
 ---
 layout: selfdriven
-title: As Intents Platform - <em>octology</em>
-permalink: /as-intents-platform/
+title: As Intents Platform - octology
+permalink: /as-intents-platform
 ---
 
 ## <em>octology</em> as an Intents Platform
