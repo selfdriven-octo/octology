@@ -15,8 +15,6 @@ Where definitions come alive - defining the Why, Who, What, How, Where & When.
 
 octology, as an intents framework/platform, is a system where human and community goals are expressed as intents, translated into trusted digital actions via identity, governance, and AI, and anchored on-chain for verifiability. It turns community intent into collective spaces and activity. -- [more...](/as-intents-platform)
 
----
-
 ## Related
 - [Actuate Areas of Focus](https://actuate.selfdriven.community/framework/areas-of-focus)
 - Generate *octology* definitions (skillzeb Templates) using the [Progressive Self-Actuation Framework](https://actuate.selfdriven.community).
