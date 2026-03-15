@@ -1,6 +1,6 @@
 ---
 layout: selfdriven
-title: Home
+title: Octology
 ---
 
 # Ontology and Topology for Self-Actuating Communities
