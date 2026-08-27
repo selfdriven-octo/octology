@@ -1,4 +1,21 @@
-## Octology
+# Ontology and Topology for Self-Actuating Communities
+
+Where definitions come alive - defining the Why, Who, What, How, Where & When.
+
+- [Ontology](/what-is-ontology/) - what exists
+- [Topology](/what-is-topology/) - how connected/arranged
+- [Incorporating skillzeb.io templates](https://skillzeb.io)
+
+## As an Intents Framework/Platform
+
+octology, as an intents framework/platform, is a system where human and community goals are expressed as intents, translated into trusted digital actions via identity, governance, and AI, and anchored on-chain for verifiability. It turns community intent into collective spaces and activity. -- [more...](/as-intents-platform)
+
+## Related
+- [Actuate Areas of Focus](https://actuate.selfdriven.community/framework/areas-of-focus)
+- Generate *octology* definitions (skillzeb Templates) using the [Progressive Self-Actuation Framework](https://actuate.selfdriven.community).
+- [Areas of Focus Framework for Organising](https://actuate.selfdriven.community/framework/areas-of-focus)
+- Community organisational systems and interfaces (human/machine) are generated using the [selfdriven.network](https://selfdriven.network) based on *octology* definitions.
+- [octomics.io](https://octomics.io) - Tokenised community-verified activity and growth as a path to a useful economy and resources - defined by a community *octology* definition (skillzeb Template).
 
 ### Scope
 - Incorporating [skillzeb](https://skillseb.io)

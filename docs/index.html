@@ -1,0 +1,598 @@
+---
+layout: null
+permalink: "/"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/img/selfdriven-logo-round-green-transparent.png">
+<link rel="apple-touch-icon" href="/assets/img/selfdriven-logo-round-green-transparent.png" />
+<meta name="color-scheme" content="dark">
+<title>Octology — The Intent Layer for Self-Actuating Communities</title>
+<meta name="description" content="Octology is the intent layer of the Octonomous stack — where community goals become intents, are anchored in identity and governance, interpreted by AI, and made verifiable on-chain. Ontology + Topology for self-actuating communities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#09090f; --surface:#111118; --surface2:#18181f;
+  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.14);
+  --text:#f0eeff; --muted:#7e7a9a; --muted2:#3d3a55;
+
+  --curious:#f5c842; --caring:#ff5f7e; --constructive:#00e5a0;
+  --chill:#7b6cff; --chill-bright:#9b8fff;
+
+  --curious-dim:rgba(245,200,66,0.13); --caring-dim:rgba(255,95,126,0.13);
+  --constructive-dim:rgba(0,229,160,0.13); --chill-dim:rgba(123,108,255,0.13);
+
+  /* framework accent — ties octology.io to the octonomous ecosystem */
+  --octo:#93dd3d; --octo-dim:rgba(147,221,61,0.13); --octo-glow:rgba(147,221,61,0.30);
+
+  /* octology signature — intent = amber/curious in the stack */
+  --intent:#f5c842; --intent-dim:rgba(245,200,66,0.13);
+
+  --pill:999px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth; background:#09090f !important; background-image:linear-gradient(#09090f,#09090f) !important}
+body{
+  background:#09090f !important; background-image:linear-gradient(#09090f,#09090f) !important; color:var(--text);
+  font-family:'DM Sans',sans-serif; line-height:1.6;
+  overflow-x:hidden; cursor:none;
+  -webkit-font-smoothing:antialiased;
+}
+a{cursor:none; color:inherit; text-decoration:none}
+::selection{background:var(--octo); color:#06150a}
+
+/* ---------- cursor ---------- */
+.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--octo);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .12s ease,background .2s}
+.cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(240,238,255,.3);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s ease,width .2s,height .2s,border-color .2s}
+@media (hover:none){body{cursor:auto} a{cursor:auto} .cursor-dot,.cursor-ring{display:none}}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 30px;
+  background:rgba(9,9,15,.72); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:19px; letter-spacing:-.03em}
+.brand .mark{width:26px;height:26px;flex:none;display:grid;place-items:center}
+.brand .mark svg{width:26px;height:26px}
+.brand em{font-style:normal; color:var(--octo)}
+.nav-links{display:flex; align-items:center; gap:28px}
+.nav-links a{font-size:14px; color:var(--muted); font-weight:500; transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:14px;
+  padding:9px 18px; border-radius:var(--pill);
+  background:var(--octo-dim); color:var(--octo);
+  border:1.5px solid rgba(147,221,61,.30); transition:transform .2s,box-shadow .2s;
+}
+.nav-cta:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(147,221,61,.18)}
+@media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ---------- layout ---------- */
+section{position:relative; z-index:1}
+.wrap{max-width:1080px; margin:0 auto; padding:0 30px}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--muted);
+  display:inline-flex; align-items:center; gap:9px; margin-bottom:22px;
+}
+.eyebrow::before{content:''; width:24px; height:1px; background:var(--octo); opacity:.7}
+h2{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.04em; line-height:1.04; font-size:clamp(30px,5vw,52px)}
+h3{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; letter-spacing:-.03em}
+.lede{color:var(--muted); font-size:clamp(16px,2vw,19px); max-width:620px; margin-top:20px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh; display:flex; align-items:center; padding:120px 0 80px; overflow:hidden}
+.gblob{position:absolute; border-radius:50%; filter:blur(95px); opacity:.5; z-index:0}
+.gb1{width:520px;height:520px;background:var(--curious);top:-150px;left:-160px;animation:gb 15s ease-in-out infinite}
+.gb2{width:440px;height:440px;background:var(--caring);top:40px;right:-130px;animation:gb 19s ease-in-out infinite reverse}
+.gb3{width:380px;height:380px;background:var(--constructive);bottom:-60px;left:14%;animation:gb 23s ease-in-out infinite 3s}
+.gb4{width:340px;height:340px;background:var(--chill);bottom:30px;right:14%;animation:gb 17s ease-in-out infinite 8s}
+.gb5{width:300px;height:300px;background:var(--octo);top:30%;left:42%;animation:gb 21s ease-in-out infinite 5s;opacity:.32}
+@keyframes gb{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(34px,-26px) scale(1.08)}70%{transform:translate(-22px,30px) scale(.93)}}
+.hero .wrap{position:relative; z-index:2}
+.hero-pill{
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(9,9,15,.55); border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--pill); padding:8px 18px;
+  font-size:12px; font-weight:500; color:rgba(240,238,255,.7);
+  letter-spacing:.08em; text-transform:uppercase;
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); margin-bottom:30px;
+}
+.hero-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--octo);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+  font-size:clamp(40px,8vw,86px); line-height:.98; letter-spacing:-.045em;
+  max-width:15ch;
+}
+.hero h1 .being{
+  background:linear-gradient(105deg,var(--octo),var(--curious));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-sub{font-size:clamp(17px,2.2vw,21px); color:var(--muted); max-width:620px; margin:28px 0 36px}
+.hero-sub b{color:var(--text); font-weight:600}
+.jump-row{position:relative; display:flex; flex-wrap:wrap; gap:11px}
+.jump-row::before{content:''; position:absolute; inset:-30px -10%; background:radial-gradient(ellipse at center,rgba(9,9,15,.55),transparent 72%); z-index:-1; pointer-events:none}
+.mode-pill{display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:var(--pill); font-family:'Bricolage Grotesque',sans-serif; font-size:14px; font-weight:600; border:1.5px solid transparent; transition:transform .2s,box-shadow .2s}
+.mode-pill svg{width:16px;height:16px}
+.mode-pill:hover{transform:translateY(-4px) rotate(-1.5deg); box-shadow:0 14px 36px rgba(0,0,0,.5)}
+.mp-c{background:var(--curious-dim);color:var(--curious);border-color:rgba(245,200,66,.28)}
+.mp-k{background:var(--caring-dim);color:var(--caring);border-color:rgba(255,95,126,.28)}
+.mp-b{background:var(--constructive-dim);color:var(--constructive);border-color:rgba(0,229,160,.28)}
+.mp-l{background:var(--chill-dim);color:var(--chill-bright);border-color:rgba(123,108,255,.28)}
+
+/* ---------- generic section spacing ---------- */
+.band{padding:100px 0}
+.band.tight{padding:80px 0}
+
+/* ---------- the shift (three-card row) ---------- */
+.shift-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:54px}
+.shift-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:22px;
+  padding:30px 26px; position:relative; overflow:hidden; transition:transform .3s,border-color .3s;
+}
+.shift-card:hover{transform:translateY(-6px); border-color:var(--border2)}
+.shift-card .step{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.18em}
+.shift-card h3{font-size:26px; margin:16px 0 10px}
+.shift-card p{color:var(--muted); font-size:15px}
+.shift-card .quote{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--octo); margin-top:16px; line-height:1.5}
+.shift-card.is-being{border-color:rgba(147,221,61,.32); background:linear-gradient(180deg,rgba(147,221,61,.07),var(--surface))}
+.shift-card.is-being h3{color:var(--octo)}
+.shift-arrow{display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.12em; flex-wrap:wrap}
+.shift-arrow b{color:var(--text)}
+@media(max-width:760px){.shift-grid{grid-template-columns:1fr}}
+
+/* ---------- roots (ontology / topology) ---------- */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:52px}
+.col-card{background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:32px 30px; transition:transform .3s,border-color .3s}
+.col-card:hover{transform:translateY(-6px)}
+.col-card .ch-label{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px}
+.col-card h3{font-size:30px; margin-bottom:8px}
+.col-card .gloss{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.08em; color:var(--octo); margin-bottom:20px}
+.col-card.ontology{border-color:rgba(245,200,66,.25)} .col-card.ontology h3,.col-card.ontology .gloss{color:var(--curious)}
+.col-card.topology{border-color:rgba(0,229,160,.25)} .col-card.topology h3,.col-card.topology .gloss{color:var(--constructive)}
+.ch-list{list-style:none; display:flex; flex-direction:column; gap:13px}
+.ch-list li{display:flex; align-items:flex-start; gap:12px; font-size:15px; color:var(--muted)}
+.ch-list li svg{width:16px;height:16px;flex:none;margin-top:3px}
+.challenge-kicker{margin-top:42px; text-align:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:clamp(20px,3vw,30px); letter-spacing:-.03em; line-height:1.3}
+.challenge-kicker .w{color:var(--octo)}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+
+/* ---------- thesis ---------- */
+.thesis{text-align:center; padding:120px 0; position:relative}
+.thesis .big{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.045em; line-height:1.05; font-size:clamp(32px,6vw,64px); max-width:18ch; margin:0 auto}
+.thesis .big .a{color:var(--muted2)}
+.thesis .big .b{background:linear-gradient(105deg,var(--octo),var(--curious)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.thesis p{color:var(--muted); max-width:580px; margin:34px auto 0; font-size:17px}
+.equation{display:inline-flex; gap:18px; align-items:center; margin-top:40px; flex-wrap:wrap; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:.1em; color:var(--muted)}
+.equation b{color:var(--octo)}
+
+/* ---------- architecture grid ---------- */
+.anatomy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:54px}
+.atom{background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:26px 24px; transition:transform .3s,border-color .3s}
+.atom:hover{transform:translateY(-5px); border-color:var(--border2)}
+.atom .n{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--octo); letter-spacing:.14em}
+.atom h3{font-size:20px; margin:12px 0 8px}
+.atom p{color:var(--muted); font-size:14px}
+@media(max-width:760px){.anatomy{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.anatomy{grid-template-columns:1fr}}
+
+/* ---------- use cases (2x2) ---------- */
+.modes{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:56px}
+.mode-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:24px;
+  padding:34px 32px; position:relative; overflow:hidden; transition:transform .3s,border-color .3s;
+}
+.mode-card::before{content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:.85}
+.mode-card:hover{transform:translateY(-6px)}
+.mode-card .ico{width:50px; height:50px; border-radius:15px; display:grid; place-items:center; margin-bottom:22px}
+.mode-card .ico svg{width:26px;height:26px}
+.mode-card h3{font-size:26px; margin-bottom:14px}
+.mode-card .intent-q{font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.55; margin-bottom:20px}
+.mode-card p{color:var(--muted); font-size:15px; margin-bottom:0}
+.asks{display:flex; flex-direction:column; gap:9px; border-top:1px solid var(--border); padding-top:20px; margin-top:20px}
+.asks .ask{font-family:'DM Sans',sans-serif; font-weight:500; font-size:14px; color:var(--muted); display:flex; gap:10px; align-items:flex-start}
+.asks .ask span{opacity:.6; font-weight:700; font-family:'JetBrains Mono',monospace; flex:none}
+.mc-c::before{background:var(--curious)} .mc-c .ico{background:var(--curious-dim); color:var(--curious)} .mc-c h3,.mc-c .intent-q{color:var(--curious)} .mc-c:hover{border-color:rgba(245,200,66,.4)}
+.mc-k::before{background:var(--caring)} .mc-k .ico{background:var(--caring-dim); color:var(--caring)} .mc-k h3,.mc-k .intent-q{color:var(--caring)} .mc-k:hover{border-color:rgba(255,95,126,.4)}
+.mc-b::before{background:var(--constructive)} .mc-b .ico{background:var(--constructive-dim); color:var(--constructive)} .mc-b h3,.mc-b .intent-q{color:var(--constructive)} .mc-b:hover{border-color:rgba(0,229,160,.4)}
+.mc-l::before{background:var(--chill)} .mc-l .ico{background:var(--chill-dim); color:var(--chill-bright)} .mc-l h3,.mc-l .intent-q{color:var(--chill-bright)} .mc-l:hover{border-color:rgba(123,108,255,.4)}
+@media(max-width:760px){.modes{grid-template-columns:1fr}}
+
+/* ---------- runtime / built-with chips ---------- */
+.runtime-wrap{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; margin-top:50px}
+.chips{display:flex; flex-wrap:wrap; gap:12px}
+.chip{font-family:'JetBrains Mono',monospace; font-size:13px; padding:11px 18px; border-radius:var(--pill); background:var(--surface2); border:1px solid var(--border); color:var(--text); transition:transform .2s,border-color .2s,color .2s}
+.chip:hover{transform:translateY(-3px); border-color:rgba(147,221,61,.4); color:var(--octo)}
+.runtime-note{color:var(--muted); font-size:16px}
+.runtime-note b{color:var(--text); font-weight:600}
+@media(max-width:760px){.runtime-wrap{grid-template-columns:1fr; gap:30px}}
+
+/* ---------- stack ---------- */
+.stack-head{text-align:center; max-width:680px; margin:0 auto}
+.stack{display:grid; grid-template-columns:1fr; gap:14px; max-width:760px; margin:54px auto 0}
+.layer{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:24px;
+  background:var(--surface); border:1px solid var(--border); border-radius:20px;
+  padding:26px 30px; transition:transform .3s,border-color .3s; position:relative;
+}
+.layer:hover{transform:translateX(6px)}
+.layer .lname{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:24px; letter-spacing:-.03em}
+.layer .lq{color:var(--muted); font-size:15px}
+.layer .ltag{font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.1em; padding:6px 14px; border-radius:var(--pill); white-space:nowrap}
+.layer .here{position:absolute; top:-11px; left:24px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; background:var(--curious); color:#1a1400; padding:3px 12px; border-radius:var(--pill); font-weight:700}
+.l-intent{border-color:rgba(245,200,66,.5); background:linear-gradient(180deg,rgba(245,200,66,.07),var(--surface))} .l-intent .lname{color:var(--curious)} .l-intent .ltag{background:var(--curious-dim); color:var(--curious)}
+.l-being{border-color:rgba(147,221,61,.28)} .l-being .lname{color:var(--octo)} .l-being .ltag{background:var(--octo-dim); color:var(--octo)}
+.l-impact{border-color:rgba(0,229,160,.3)} .l-impact .lname{color:var(--constructive)} .l-impact .ltag{background:var(--constructive-dim); color:var(--constructive)}
+.stack-flow{text-align:center; margin-top:34px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:clamp(20px,3vw,30px); letter-spacing:-.02em}
+.stack-flow .arr{color:var(--muted2); margin:0 10px}
+.stack-flow .w{color:var(--curious)} .stack-flow .h{color:var(--octo)} .stack-flow .i{color:var(--constructive)}
+@media(max-width:620px){.layer{grid-template-columns:1fr; gap:10px; text-align:left} .layer .ltag{justify-self:start}}
+
+/* ---------- cta card ---------- */
+.octo-band{position:relative; overflow:hidden}
+.octo-card{
+  position:relative; border:1px solid rgba(147,221,61,.28); border-radius:30px;
+  padding:60px clamp(28px,5vw,64px); margin-top:30px; overflow:hidden;
+  background:radial-gradient(120% 120% at 0% 0%,rgba(147,221,61,.10),transparent 55%),var(--surface);
+}
+.octo-card .badge{display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--octo); margin-bottom:22px}
+.octo-card .badge .o{width:9px;height:9px;border-radius:50%;background:var(--octo);box-shadow:0 0 12px var(--octo)}
+.octo-card h2{max-width:18ch}
+.octo-card p{color:var(--muted); font-size:17px; max-width:620px; margin-top:22px}
+.octo-card p b{color:var(--text); font-weight:600}
+.octo-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:38px}
+.octo-cta{display:inline-flex; align-items:center; gap:9px; font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:15px; padding:13px 24px; border-radius:var(--pill); background:var(--octo); color:#06150a; transition:transform .2s,box-shadow .2s}
+.octo-cta:hover{transform:translateY(-4px); box-shadow:0 16px 40px var(--octo-glow)}
+.octo-cta svg{width:17px;height:17px}
+.repo-link{display:inline-flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:15px;padding:13px 22px;border-radius:var(--pill);background:var(--surface2);border:1px solid var(--border2);color:var(--text);transition:transform .2s,border-color .2s,color .2s}
+.repo-link:hover{transform:translateY(-3px);border-color:var(--octo);color:var(--octo)}
+.repo-link svg{width:19px;height:19px}
+
+/* ---------- closing word row ---------- */
+.society{text-align:center}
+.fourC{display:flex; justify-content:center; gap:clamp(14px,4vw,46px); margin-top:56px; flex-wrap:wrap}
+.fourC span{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(20px,4vw,38px); letter-spacing:-.03em}
+.fourC .c1{color:var(--curious)} .fourC .c2{color:var(--constructive)} .fourC .c3{color:var(--caring)} .fourC .c4{color:var(--chill-bright)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--border); padding:70px 0 50px; margin-top:40px; position:relative; z-index:1}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px}
+.foot-brand{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.03em; margin-bottom:16px}
+.foot-brand .mark svg{width:26px;height:26px}
+.foot-brand em{font-style:normal;color:var(--octo)}
+.foot-blurb{color:var(--muted); font-size:14px; max-width:300px}
+.foot-col h4{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; font-weight:500}
+.foot-col a{display:block; color:var(--text); font-size:15px; margin-bottom:12px; transition:color .2s}
+.foot-col a:hover{color:var(--octo)}
+.foot-bottom{display:flex; justify-content:space-between; align-items:center; gap:20px; margin-top:54px; padding-top:28px; border-top:1px solid var(--border); flex-wrap:wrap}
+.foot-bottom p{color:var(--muted); font-size:13px}
+.foot-bottom .cs{display:flex; gap:7px}
+.foot-bottom .cs i{width:11px;height:11px;border-radius:50%}
+.foot-bottom .cs .c1{background:var(--curious)} .foot-bottom .cs .c2{background:var(--caring)} .foot-bottom .cs .c3{background:var(--constructive)} .foot-bottom .cs .c4{background:var(--chill)}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr; gap:34px}}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .6s,transform .6s cubic-bezier(.34,1.56,.64,1)}
+.reveal.vis{opacity:1; transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- icon symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-telescope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="17" cy="13" r="3"/><path d="M3 7l5.5 2.5"/><path d="M3 7l2-4 14.5 6.5-2 4"/><path d="M8.5 9.5L6 20h5l1.5-4"/><path d="M17 16v4"/>
+  </symbol>
+  <symbol id="ic-graph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M6.8 7.6 10.4 16M17.2 7.6 13.6 16M7.4 6h9.2"/>
+  </symbol>
+  <symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ic-vote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 12l2 2 4-4"/><path d="M5 21h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="ic-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.7 2.7 3 6 3s6-1.3 6-3V7"/><path d="M3 12v5c0 1.7 2.7 3 6 3 1.2 0 2.3-.2 3.2-.5"/><circle cx="17" cy="15" r="4"/>
+  </symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="ic-github" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.575.106.785-.25.785-.556 0-.274-.01-1-.015-1.964-3.196.695-3.87-1.54-3.87-1.54-.523-1.33-1.278-1.684-1.278-1.684-1.044-.714.08-.7.08-.7 1.154.082 1.76 1.185 1.76 1.185 1.027 1.76 2.695 1.252 3.35.957.104-.744.402-1.252.73-1.54-2.552-.29-5.236-1.276-5.236-5.68 0-1.254.448-2.28 1.183-3.084-.118-.29-.513-1.46.113-3.043 0 0 .966-.31 3.166 1.178a11 11 0 0 1 2.882-.388c.978.004 1.963.132 2.883.388 2.198-1.489 3.163-1.178 3.163-1.178.627 1.583.232 2.753.114 3.043.737.804 1.182 1.83 1.182 3.084 0 4.415-2.688 5.387-5.248 5.671.413.356.78 1.057.78 2.13 0 1.538-.014 2.778-.014 3.157 0 .308.207.668.79.554A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></symbol>
+  <symbol id="sd-mark" viewBox="0 0 736 728"><circle cx="368" cy="366" r="363" fill="currentColor"/><polygon points="184,295 317,162 317,295 184,428" fill="#efefe5"/><polygon points="185,528 453,260 453,395 320,527" fill="#efefe5"/><polygon points="424,527 555,397 555,527" fill="#efefe5"/></symbol>
+</svg>
+
+<div class="cursor-dot" id="cdot"></div>
+<div class="cursor-ring" id="cring"></div>
+
+<!-- nav -->
+<nav>
+  <a href="/" class="brand"><span class="mark"><svg style="color:var(--octo)"><use href="#sd-mark"/></svg></span><span class="wm">octo<em>logy</em></span></a>
+  <div class="nav-links">
+    <a href="#roots">Ontology + Topology</a>
+    <a href="#architecture">The Architecture</a>
+    <a href="#stack">The Stack</a>
+    <a href="https://github.com/selfdriven-octo/octology">GitHub</a>
+    <a href="/as-intents-platform" class="nav-cta">Read the paper</a>
+  </div>
+</nav>
+
+<!-- hero -->
+<section class="hero" id="top">
+  <div class="gblob gb1"></div><div class="gblob gb2"></div><div class="gblob gb3"></div><div class="gblob gb4"></div><div class="gblob gb5"></div>
+  <div class="wrap">
+    <span class="hero-pill"><span class="dot"></span>The Intent Layer · within the Octonomous stack</span>
+    <h1>Communities have goals. Octology turns them into <span class="being">intent.</span></h1>
+    <p class="hero-sub">Octology is the intent layer for self-actuating communities — where human and community goals become structured <b>intents</b>, anchored in identity and governance, interpreted by AI, and made verifiable on-chain. It turns shared aspiration into coordinated, trusted, executable action.</p>
+    <div class="jump-row">
+      <a href="#roots" class="mode-pill mp-c"><svg><use href="#ic-telescope"/></svg>Ontology</a>
+      <a href="#roots" class="mode-pill mp-b"><svg><use href="#ic-graph"/></svg>Topology</a>
+      <a href="#intents" class="mode-pill mp-k"><svg><use href="#ic-target"/></svg>Intent</a>
+      <a href="#architecture" class="mode-pill mp-l"><svg><use href="#ic-vote"/></svg>Actuation</a>
+    </div>
+  </div>
+</section>
+
+<!-- the roots -->
+<section class="band" id="roots">
+  <div class="wrap">
+    <span class="eyebrow reveal">Where the name comes from</span>
+    <h2 class="reveal">Two roots. One grammar<br>for community.</h2>
+    <p class="lede reveal">Octology is built from two ways of describing a system — what it is made of, and how it is arranged. Together they give a community a shared, machine-readable definition it can actually act on.</p>
+    <div class="split">
+      <div class="col-card ontology reveal">
+        <div class="ch-label">Root 01</div>
+        <h3>Ontology</h3>
+        <div class="gloss">// what exists</div>
+        <ul class="ch-list">
+          <li><svg style="color:var(--curious)"><use href="#ic-check"/></svg>The entities, concepts and roles a community recognises</li>
+          <li><svg style="color:var(--curious)"><use href="#ic-check"/></svg>Their attributes and the relationships between them</li>
+          <li><svg style="color:var(--curious)"><use href="#ic-check"/></svg>Knowledge made machine-readable and interoperable — the semantic layer beneath the community</li>
+        </ul>
+      </div>
+      <div class="col-card topology reveal">
+        <div class="ch-label">Root 02</div>
+        <h3>Topology</h3>
+        <div class="gloss">// how it's connected &amp; arranged</div>
+        <ul class="ch-list">
+          <li><svg style="color:var(--constructive)"><use href="#ic-check"/></svg>How components, people and nodes connect and relate</li>
+          <li><svg style="color:var(--constructive)"><use href="#ic-check"/></svg>The structure of connections — not the content, but the shape</li>
+          <li><svg style="color:var(--constructive)"><use href="#ic-check"/></svg>The map or layout of a community and the way its parts hold together</li>
+        </ul>
+      </div>
+    </div>
+    <p class="challenge-kicker reveal">Where definitions come alive — defining the<br><span class="w">Why</span>, <span class="w">Who</span>, <span class="w">What</span>, <span class="w">How</span>, <span class="w">Where</span> &amp; <span class="w">When</span>.</p>
+  </div>
+</section>
+
+<!-- what is an intent -->
+<section class="band tight" id="intents">
+  <div class="wrap">
+    <span class="eyebrow reveal">First-class objects</span>
+    <h2 class="reveal">Everything begins with an intent.</h2>
+    <p class="lede reveal">An intent is a goal made structured, contextualised, and executable. Octology treats intents not as search queries or one-off tasks, but as durable objects a community can align around and act on.</p>
+    <div class="shift-grid">
+      <div class="shift-card reveal"><div class="step">01 · HUMAN</div><h3>An expressed goal</h3><p>What a person wants to learn, make, or become.</p><p class="quote">“I want to learn climate science.”</p></div>
+      <div class="shift-card reveal"><div class="step">02 · COMMUNITY</div><h3>A shared directive</h3><p>What a group decides to pursue together.</p><p class="quote">“We intend to fund a local BioHub.”</p></div>
+      <div class="shift-card is-being reveal"><div class="step">03 · MACHINE</div><h3>An executable request</h3><p>The intent, translated into workflows, smart contracts, and credential exchanges.</p><p class="quote" style="color:var(--octo)">→ resolved &amp; anchored</p></div>
+    </div>
+    <div class="shift-arrow reveal">Express <span>→</span> Align <span>→</span> <b>Actuate</b></div>
+  </div>
+</section>
+
+<!-- the architecture -->
+<section class="band" id="architecture">
+  <div class="wrap">
+    <span class="eyebrow reveal">Core architecture</span>
+    <h2 class="reveal">From aspiration to<br>verifiable action.</h2>
+    <p class="lede reveal">Five layers carry an intent from the moment it is spoken to the moment its outcome can be proven — each anchored in trust rather than centralised authority.</p>
+    <div class="anatomy">
+      <div class="atom reveal"><div class="n">01</div><h3>Identity — SSI</h3><p>DIDs and Verifiable Credentials anchor <em>who</em> is expressing an intent. Zero-knowledge proofs allow selective disclosure.</p></div>
+      <div class="atom reveal"><div class="n">02</div><h3>Governance</h3><p>Intents are validated against community rules, charters and constitutions — supporting democratic, cooperative and meritocratic models side by side.</p></div>
+      <div class="atom reveal"><div class="n">03</div><h3>AI Interpretation</h3><p>Natural language becomes structured intent through contextual reasoning, aligned with a community's values.</p></div>
+      <div class="atom reveal"><div class="n">04</div><h3>On-Chain Anchoring</h3><p>Intents resolve into transactions, smart contracts and tokenised commitments — auditable, immutable, verifiable.</p></div>
+      <div class="atom reveal"><div class="n">05</div><h3>Execution</h3><p>APIs, apps and services carry out intent-aligned actions: funding, credential issuance, staking, governance voting.</p></div>
+      <div class="atom reveal" style="border-color:rgba(147,221,61,.3);background:linear-gradient(180deg,rgba(147,221,61,.06),var(--surface))"><div class="n" style="color:var(--octo)">+</div><h3 style="color:var(--octo)">Trust</h3><p>Every layer references verifiable identity and on-chain record — so intent stays anchored end to end.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- thesis -->
+<section class="thesis">
+  <div class="wrap">
+    <p class="big reveal"><span class="a">Intent</span> before <span class="b">execution.</span></p>
+    <p class="reveal">Most platforms capture what an individual wants and act on it in isolation. Octology captures what a community means — anchored in identity, aligned through governance, and made verifiable — so collective intent becomes the thing that drives action.</p>
+    <div class="equation reveal">INTENT = <span>why &amp; who</span> &nbsp;·&nbsp; EXECUTION = <b>what &amp; how</b></div>
+  </div>
+</section>
+
+<!-- use cases -->
+<section class="band tight" id="usecases">
+  <div class="wrap">
+    <span class="eyebrow reveal">In practice</span>
+    <h2 class="reveal">One grammar, many outcomes</h2>
+    <p class="lede reveal">The same intent architecture serves learning, governance, privacy and shared resources — turning a stated goal into a trusted, verifiable result.</p>
+    <div class="modes">
+      <div class="mode-card mc-c reveal">
+        <div class="ico"><svg><use href="#ic-telescope"/></svg></div>
+        <h3>Education</h3>
+        <div class="intent-q">“I want to complete a project on renewable energy.”</div>
+        <p>Verify the learner, check project guidelines, recommend mentors and resources.</p>
+        <div class="asks">
+          <div class="ask"><span>SSI</span>Learner identity verified</div>
+          <div class="ask"><span>CHAIN</span>Learning credential issued on completion</div>
+        </div>
+      </div>
+      <div class="mode-card mc-k reveal">
+        <div class="ico"><svg><use href="#ic-vote"/></svg></div>
+        <h3>Community Governance</h3>
+        <div class="intent-q">“We intend to co-fund a BioHub.”</div>
+        <p>Verify proposers and run the decision through the community's own rules.</p>
+        <div class="asks">
+          <div class="ask"><span>GOV</span>CIP-136 proposal format applied</div>
+          <div class="ask"><span>CHAIN</span>Votes recorded, funds distributed</div>
+        </div>
+      </div>
+      <div class="mode-card mc-b reveal">
+        <div class="ico"><svg><use href="#ic-shield"/></svg></div>
+        <h3>SSI &amp; Privacy</h3>
+        <div class="intent-q">“Prove I have valid insurance — without revealing the details.”</div>
+        <p>A verifiable credential plus a zero-knowledge proof request.</p>
+        <div class="asks">
+          <div class="ask"><span>ZK</span>Selective disclosure, nothing more</div>
+          <div class="ask"><span>CHAIN</span>Verifiable confirmation on-chain</div>
+        </div>
+      </div>
+      <div class="mode-card mc-l reveal">
+        <div class="ico"><svg><use href="#ic-coins"/></svg></div>
+        <h3>Tokenomics</h3>
+        <div class="intent-q">“Stake into a shared Unity Node.”</div>
+        <p>Collective ownership rules govern the commitment.</p>
+        <div class="asks">
+          <div class="ask"><span>GOV</span>Shared-ownership rules enforced</div>
+          <div class="ask"><span>CHAIN</span>CIP-68 tokens for distribution</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- the stack -->
+<section class="band" id="stack">
+  <div class="wrap">
+    <div class="stack-head">
+      <span class="eyebrow reveal" style="justify-content:center">The Octonomous stack</span>
+      <h2 class="reveal">Intent. Being. Contribution.</h2>
+      <p class="lede reveal">Three layers form a complete ecosystem — from why something should happen, to who carries it out, to the value it creates. Octology is the first.</p>
+    </div>
+    <div class="stack">
+      <div class="layer l-intent reveal">
+        <span class="here">You are here</span>
+        <div class="lname">Octology</div>
+        <div class="lq">The Intent Layer — communities and individuals express goals and desired outcomes. <em>“What should happen?”</em></div>
+        <div class="ltag">INTENT</div>
+      </div>
+      <div class="layer l-being reveal">
+        <div class="lname">Octonomous</div>
+        <div class="lq">The Being Layer — self-sovereign beings subscribe to intent and act on it with character. <em>“Who acts, and how?”</em></div>
+        <div class="ltag">BEING</div>
+      </div>
+      <div class="layer l-impact reveal">
+        <div class="lname">Octomics</div>
+        <div class="lq">The Contribution Layer — value, learning and growth become visible and verifiable. <em>“What was created?”</em></div>
+        <div class="ltag">CONTRIBUTION</div>
+      </div>
+    </div>
+    <p class="stack-flow reveal"><span class="w">Why</span><span class="arr">→</span><span class="h">Who</span><span class="arr">→</span><span class="i">Impact</span></p>
+  </div>
+</section>
+
+<!-- built with / related -->
+<section class="band tight" id="related">
+  <div class="wrap">
+    <span class="eyebrow reveal">Part of the selfdriven ecosystem</span>
+    <h2 class="reveal">Definitions in. Communities out.</h2>
+    <div class="runtime-wrap">
+      <div class="chips reveal">
+        <a class="chip" href="https://skillzeb.io">skillzeb.io templates</a>
+        <a class="chip" href="https://actuate.selfdriven.community">actuate · self-actuation</a>
+        <a class="chip" href="https://actuate.selfdriven.community/framework/areas-of-focus">Areas of Focus</a>
+        <a class="chip" href="https://selfdriven.network">selfdriven.network</a>
+        <a class="chip" href="https://octomics.io">octomics.io</a>
+      </div>
+      <p class="runtime-note reveal">An octology definition — generated as a skillzeb Template through the Progressive Self-Actuation Framework — becomes the source of truth. From it, <b>selfdriven.network</b> generates the community's organisational systems and human/machine interfaces, and <b>octomics.io</b> turns verified activity and growth into tokenised, useful economic value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- cta -->
+<section class="band octo-band" id="cta">
+  <div class="wrap">
+    <div class="octo-card reveal">
+      <span class="badge"><span class="o"></span>Turn intent into action</span>
+      <h2>Give your community a definition it can act on.</h2>
+      <p>Octology is a translation layer between human aspiration and digital execution — anchoring intent in identity, aligning it through governance, and making its outcomes <b>verifiable</b>. It's a path toward self-actuation: intent turned into coordinated, trusted action.</p>
+      <div class="octo-actions">
+        <a href="/as-intents-platform" class="octo-cta">Read the intents platform paper <svg><use href="#ic-arrow"/></svg></a>
+        <a href="https://github.com/selfdriven-octo/octology" class="repo-link"><svg><use href="#ic-github"/></svg> View the source on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- closing -->
+<section class="band society">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center">The grammar of self-actuation</span>
+    <h2 class="reveal">What exists. How it connects.<br>What should happen next.</h2>
+    <div class="fourC reveal">
+      <span class="c1">Ontology.</span><span class="c2">Topology.</span><span class="c3">Intent.</span><span class="c4">Actuation.</span>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><span class="mark"><svg style="color:var(--octo)"><use href="#sd-mark"/></svg></span><span class="wm">octo<em>logy</em></span></div>
+        <p class="foot-blurb">The intent layer for self-actuating communities — ontology and topology turned into coordinated, trusted, verifiable action.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Octology</h4>
+        <a href="#roots">Ontology + Topology</a>
+        <a href="#architecture">The intents architecture</a>
+        <a href="/as-intents-platform">As an intents platform</a>
+        <a href="/what-is-ontology/">What is ontology?</a>
+        <a href="/what-is-topology/">What is topology?</a>
+        <a href="https://github.com/selfdriven-octo/octology">Source on GitHub</a>
+      </div>
+      <div class="foot-col">
+        <h4>Ecosystem</h4>
+        <a href="https://octonomous.io">octonomous.io</a>
+        <a href="https://heyocto.ai">heyOcto.ai</a>
+        <a href="https://octomics.io">octomics.io</a>
+        <a href="https://selfdriven.you">selfdriven.you</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Octology · The intent layer within the selfdriven ecosystem.</p>
+      <div class="cs"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// custom cursor
+(function(){
+  var dot=document.getElementById('cdot'), ring=document.getElementById('cring');
+  if(!dot) return;
+  var rx=0,ry=0,dx=0,dy=0;
+  document.addEventListener('mousemove',function(e){ dx=e.clientX; dy=e.clientY; dot.style.left=dx+'px'; dot.style.top=dy+'px'; });
+  function loop(){ rx+=(dx-rx)*.18; ry+=(dy-ry)*.18; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); }
+  loop();
+  document.querySelectorAll('a,.mode-card,.shift-card,.atom,.chip,.layer,.col-card').forEach(function(el){
+    el.addEventListener('mouseenter',function(){ ring.style.width='52px'; ring.style.height='52px'; ring.style.borderColor='rgba(147,221,61,.6)'; });
+    el.addEventListener('mouseleave',function(){ ring.style.width='34px'; ring.style.height='34px'; ring.style.borderColor='rgba(240,238,255,.3)'; });
+  });
+})();
+// scroll reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis'); io.unobserve(x.target);}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
